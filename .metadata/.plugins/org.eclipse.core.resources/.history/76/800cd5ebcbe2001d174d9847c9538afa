@@ -1,0 +1,19 @@
+package com.hotel.demo.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.hotel.demo.database.hotelmanagement;
+import com.hotel.demo.server.HotelServer;
+@RestController
+public class HotelController {
+	@Autowired
+	HotelServer dbask;
+	public List<hotelmanagement> getup(){
+		List<hotelmanagement> q = dbask.getAll();
+		return q;
+	}
+
+}
