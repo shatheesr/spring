@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.Optional;
 import com.hotel.demo.database.hotelmanagement;
 import com.hotel.demo.repository.HotelRepository;
 
@@ -16,9 +16,11 @@ public class HotelServer {
 		List<hotelmanagement>p =dserv.findAll();
 		return p;
 	}
+	
+	
 	public hotelmanagement savevalues(hotelmanagement r) {
 		
-		return dserv.save(r);
+		return dserv.save(r);                   
 	}
 	public hotelmanagement updateRecords(hotelmanagement s) {
 		
@@ -32,5 +34,14 @@ public class HotelServer {
 		dserv.deleteById(num);
 		
 	}
+
+
+	public Optional<hotelmanagement> getbyid(int id) {
+		Optional<hotelmanagement>p =dserv.findById(id);
+		return p;
+	}
+
+
+	
 
 }

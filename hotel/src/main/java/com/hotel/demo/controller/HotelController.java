@@ -1,7 +1,6 @@
 package com.hotel.demo.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.util.Optional;
 import com.hotel.demo.database.hotelmanagement;
 import com.hotel.demo.server.HotelServer;
 @RestController
@@ -20,6 +19,11 @@ public class HotelController {
 	@GetMapping("/get")
 	public List<hotelmanagement> getup(){
 		List<hotelmanagement> q = dbask.getAll();
+		return q;
+	}
+	@GetMapping("/get/{id}")
+	public Optional<hotelmanagement> readbyid(@PathVariable int id){
+		Optional<hotelmanagement> q = dbask.getbyid(id);
 		return q;
 	}
 	@PostMapping("/post")
@@ -32,12 +36,15 @@ public class HotelController {
 		
 	}
 	@DeleteMapping("/delete")
-	public void deleteRecords() {
+	public String deleteRecords() {
 		dbask.deleteRecords();
+		return "all records was deleted";
 	}
 	@DeleteMapping("/delete/{num}")
-	public void deleteRecords(@PathVariable("num") int num) {
+	public String deleteRecords(@PathVariable("num") int num) {
 		dbask.deleteRecords(num);
+		return "Reservation_ID "+num+" was deleted";
+		
 	}
 
 }
