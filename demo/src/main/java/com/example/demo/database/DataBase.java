@@ -17,18 +17,12 @@ public class DataBase {
 	private String name;
 	@Column
 	private float salary;
-	
-	 public DataBase() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	public DataBase(int id, String name, float salary) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
 	}
-
 	public int getId() {
 		return id;
 	}
@@ -47,9 +41,6 @@ public class DataBase {
 	public void setSalary(float salary) {
 		this.salary = salary;
 	}
-	  
-	
-
 }
 
 

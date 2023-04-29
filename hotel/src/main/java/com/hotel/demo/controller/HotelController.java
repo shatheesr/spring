@@ -1,6 +1,8 @@
 package com.hotel.demo.controller;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 import com.hotel.demo.database.hotelmanagement;
@@ -46,5 +49,30 @@ public class HotelController {
 		return "Reservation_ID "+num+" was deleted";
 		
 	}
+	//sorting
+	@GetMapping("/sort/{field}")
+	public List<hotelmanagement>sortHotel(@PathVariable("field") String field){
+		return dbask.sortAll(field);
+	}
+	
+	//paging
+	@GetMapping("/get/{offset}/{pagesize}")
+	public List<hotelmanagement> paging(@PathVariable int offset,@PathVariable int pagesize){
+		return dbask.paging(offset,pagesize);
+	}
+	//paging and sorting
+	@GetMapping("/get/{offset}/{pagesize}/{field}")
+	public List<hotelmanagement> paging(@PathVariable int offset,@PathVariable int pagesize,@PathVariable String field){
+		return dbask.pagingAndSorting(offset,pagesize,field);
+	}
+//	@GetMapping("/get/fetchguestnamebyprefix")
+//	public List<hotelmanagement> fetchguestnamebyprefix(@RequestParam String prefix){
+//		return dbask.fetchguestnamebyprefix(prefix);
+//	}
+//	@GetMapping("/get/fetchguestnamebysuffix")
+//	public List<hotelmanagement> fetchguestnamebysuffix(@RequestParam String suffix){
+//		return dbask.fetchguestnamebysuffix(suffix);
+//	}
+
 
 }

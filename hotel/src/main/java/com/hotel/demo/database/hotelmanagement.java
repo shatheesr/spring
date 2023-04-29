@@ -3,76 +3,98 @@ package com.hotel.demo.database;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+//import jakarta.persistence.GeneratedValue;
+//import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class hotelmanagement {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int Reservation_ID;
-	private String Guest_Name;
-	private Date Check_in_Date;
-	private Date Check_out_Date;
-	private String Room_Number;
-	private String Payment_Status;
-	private String Room_Type;
-
-	public int getReservation_ID() {
-		return Reservation_ID;
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int reservationid;
+	private String guestname;
+	private long phonenumber;
+	private String email;
+	private Date checkindate;
+	private Date checkoutdate;
+	private String roomnumber;
+	private String paymentstatus;
+	private String roomtype;
+	private int numofadults;
+	private int numofchildren;
+	private double totalcost;
+	
+	public int getReservationid() {
+		return reservationid;
 	}
-
-	public void setReservation_ID(int reservation_ID) {
-		Reservation_ID = reservation_ID;
+	public void setReservationid(int reservationid) {
+		this.reservationid = reservationid;
 	}
-
-	public String getGuest_Name() {
-		return Guest_Name;
+	public String getGuestname() {
+		return guestname;
 	}
-
-	public void setGuest_Name(String guest_Name) {
-		Guest_Name = guest_Name;
+	public void setGuestname(String guestname) {
+		this.guestname = guestname;
 	}
-
-	public Date getCheck_in_Date() {
-		return Check_in_Date;
+	public Date getCheckindate() {
+		return checkindate;
 	}
-
-	public void setCheck_in_Date(Date check_in_Date) {
-		Check_in_Date = check_in_Date;
+	public void setCheckindate(Date checkindate) {
+		this.checkindate = checkindate;
 	}
-
-	public Date getCheck_out_Date() {
-		return Check_out_Date;
+	public Date getCheckoutdate() {
+		return checkoutdate;
 	}
-
-	public void setCheck_out_Date(Date check_out_Date) {
-		Check_out_Date = check_out_Date;
+	public void setCheckoutdate(Date checkoutdate) {
+		this.checkoutdate = checkoutdate;
 	}
-
-	public String getRoom_Number() {
-		return Room_Number;
+	public String getRoomnumber() {
+		return roomnumber;
 	}
-
-	public void setRoom_Number(String room_Number) {
-		Room_Number = room_Number;
+	public void setRoomnumber(String roomnumber) {
+		this.roomnumber = roomnumber;
 	}
-
-	public String getPayment_Status() {
-		return Payment_Status;
+	public String getPaymentstatus() {
+		return paymentstatus;
 	}
-
-	public void setPayment_Status(String payment_Status) {
-		Payment_Status = payment_Status;
+	public void setPaymentstatus(String paymentstatus) {
+		this.paymentstatus = paymentstatus;
 	}
-
-	public String getRoom_Type() {
-		return Room_Type;
+	public String getRoomtype() {
+		return roomtype;
 	}
-
-	public void setRoom_Type(String room_Type) {
-		Room_Type = room_Type;
+	public void setRoomtype(String roomtype) {
+		this.roomtype = roomtype;
 	}
-
+	
+	public long getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(long phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public int getNumofadults() {
+		return numofadults;
+	}
+	public void setNumofadults(int numofadults) {
+		this.numofadults = numofadults;
+	}
+	public int getNumofchildren() {
+		return numofchildren;
+	}
+	public void setNumofchildren(int numofchildren) {
+		this.numofchildren = numofchildren;
+	}
+	public double getTotalcost() {
+		return totalcost;
+	}
+	public void setTotalcost(double totalcost) {
+		this.totalcost = totalcost;
+	}
 }
