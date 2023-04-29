@@ -65,15 +65,14 @@ public class HotelServer {
 	}
 
 
-//	public List<hotelmanagement> fetchguestnamebyprefix(String prefix) {
-//		return dserv.findByguestnameStartingWith(prefix);
-//	}
-//
-//
-//	public List<hotelmanagement> fetchguestnamebysuffix(String suffix) {
-//		return dserv.findByguestnameEndingWith(suffix);
-//	}
-////	
+	public List<hotelmanagement> fetchguestnamebyprefix(String prefix) {
+		return dserv.findByguestnameStartingWith(prefix);
+	}
+
+	public List<hotelmanagement> fetchguestnamebysuffix(String suffix) {
+		return dserv.findByguestnameEndingWith(suffix);
+	}
+	
 	
 
 	

@@ -15,6 +15,8 @@ public class registerdata {
 	private String state;
 	private String city;
 	private int pincode;
+	private String phonenumber;
+	private String email;
 	public int getId() {
 		return id;
 	}
@@ -68,6 +70,18 @@ public class registerdata {
 	}
 	public void setPincode(int pincode) {
 		this.pincode = pincode;
+	}
+	public String getPhonenumber() {
+		return phonenumber;
+	}
+	public void setPhonenumber(String phonenumber) {
+		this.phonenumber = phonenumber;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 

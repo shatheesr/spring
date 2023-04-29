@@ -65,14 +65,14 @@ public class HotelController {
 	public List<hotelmanagement> paging(@PathVariable int offset,@PathVariable int pagesize,@PathVariable String field){
 		return dbask.pagingAndSorting(offset,pagesize,field);
 	}
-//	@GetMapping("/get/fetchguestnamebyprefix")
-//	public List<hotelmanagement> fetchguestnamebyprefix(@RequestParam String prefix){
-//		return dbask.fetchguestnamebyprefix(prefix);
-//	}
-//	@GetMapping("/get/fetchguestnamebysuffix")
-//	public List<hotelmanagement> fetchguestnamebysuffix(@RequestParam String suffix){
-//		return dbask.fetchguestnamebysuffix(suffix);
-//	}
+	@GetMapping("/get/fetchguestnamebyprefix")
+	public List<hotelmanagement> fetchguestnamebyprefix(@RequestParam String prefix){
+		return dbask.fetchguestnamebyprefix(prefix);
+	}
+	@GetMapping("/get/fetchguestnamebysuffix")
+	public List<hotelmanagement> fetchguestnamebysuffix(@RequestParam String suffix){
+		return dbask.fetchguestnamebysuffix(suffix);
+	}
 
 
 }
