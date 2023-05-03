@@ -47,7 +47,7 @@ public class HotelServer {
 //sorting
 	public List<hotelmanagement> sortAll(String field) {
 		
-		return dserv.findAll(Sort.by(field));
+		return dserv.findAll(Sort.by(field).descending());
 	}
 
 
