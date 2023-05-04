@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 import com.hotel.demo.database.hotelmanagement;
 import com.hotel.demo.server.HotelServer;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 public class HotelController {
 	@Autowired
 	HotelServer dbask;
+	@Tag(name="get",description="getall")
 	@GetMapping("/get")
 	public List<hotelmanagement> getup(){
 		List<hotelmanagement> q = dbask.getAll();
@@ -72,6 +75,42 @@ public class HotelController {
 	@GetMapping("/get/fetchguestnamebysuffix")
 	public List<hotelmanagement> fetchguestnamebysuffix(@RequestParam String suffix){
 		return dbask.fetchguestnamebysuffix(suffix);
+	}
+	@GetMapping("/getbyquery")
+	public List<hotelmanagement> getAllValue(){
+		List<hotelmanagement> q = dbask.getAllValue();
+		return q;
+	}
+	@GetMapping("/getbyroomtype")
+	public List<hotelmanagement> gethotelmanagementByroomtype(@RequestParam String roomtype){
+		List<hotelmanagement> q = dbask.gethotelmanagementByroomtype(roomtype);
+		return q;
+	}
+	@GetMapping("/getbysroomtype/{roomtype}")
+	public List<hotelmanagement> getShotelmanagementByroomtype(@PathVariable String roomtype){
+		List<hotelmanagement> q = dbask.getShotelmanagementByroomtype(roomtype);
+		return q;
+	}
+	@DeleteMapping("/deletebyreid/{reservationid}")
+	public String deletehotelmanagementByroomtype(@PathVariable int reservationid) {
+	int result=	dbask.deletehotelmanagementByroomtype(reservationid);
+	if(result>0) {
+		return " the record is deleted";
+	}
+	else {
+		return "problem occured while deleting";
+	}
+		
+		
+	}
+	@PutMapping("/updatebyquery/{roomtype}/{reservationid}")
+	public int updatehotelmanagementByDetail(@PathVariable String roomtype, @PathVariable int reservationid) {
+		return dbask.updatehotelmanagementByDetail(roomtype, reservationid);
+	}
+	@GetMapping("/getbynativequery")
+	public List<hotelmanagement> fetchhotelmanagementByAll(){
+		List<hotelmanagement> q = dbask.fetchhotelmanagementByAll();
+		return q;
 	}
 
 
