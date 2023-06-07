@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.hotel.demo.database.logindata;
-import com.hotel.demo.repository.loginrepository;
+
 @Service
 public class loginserver {
 	@Autowired
@@ -15,7 +14,7 @@ public class loginserver {
 	}
 	
 	
-	public logindata savevalues(logindata r) {
+	public SignupData savevalues(logindata r) {
 		
 		return lrepo.save(r);                   
 	}

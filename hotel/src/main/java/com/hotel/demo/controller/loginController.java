@@ -6,10 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.hotel.demo.database.logindata;
-import com.hotel.demo.server.loginserver;
+
+
 
 @RestController
 public class loginController {
@@ -33,5 +34,8 @@ public class loginController {
 		String result = lserver.loginCheckData(username, password);
 		return result;
 	}
+	@PutMapping("/put")
+	public logindata updateRecords (@RequestBody logindata s) {
+		return lserver.updateRecords(s);
 
 }
